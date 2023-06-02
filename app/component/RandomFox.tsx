@@ -1,11 +1,15 @@
 //2 Explicito - Tipa lo que retorna la funcion (un elemento de React) // es el que se debe usar
-const random = () => Math.floor(Math.random() * 123) + 1;
+type Props = {image: string}
 
-export const RandomFox = (): JSX.Element => {
-
-    const url: string = `https://randomfox.ca/images/${random()}.jpg`
-    
+export const RandomFox = (props:Props): JSX.Element => {
      return (
-         <img width={320} height='auto' className='rounded' src={url} alt='' />
+         <img width={320} height='auto' className='rounded' src={props.image} alt='' />
     ) 
+}
+
+//cambio en tipado
+export const RandomFox = ({image}:Props): JSX.Element => {
+    return (
+        <img width={320} height='auto' className='rounded' src={image} alt='' />
+   ) 
 }
