@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react'
 import type { MouseEventHandler } from 'react'
-import { RandomFox } from './component/RandomFox'
+import { LazyImage } from './component/RandomFox'
 
 //funcion para generar elementos random
 const random = () => Math.floor(Math.random() * 123) + 1;
@@ -46,7 +46,12 @@ const Home = () => {
                     images.map((image) => {
                     return(
                         <div key={image.id} className='p-4'>
-                            <RandomFox image = {image.url}/>
+                            <LazyImage
+                                src={image.url}
+                                width={ 320 }
+                                height="auto"
+                                className='rounded bg-gray-300'
+                                onClick={() => console.log('holii')} />
                         </div>
                     )
                 })
